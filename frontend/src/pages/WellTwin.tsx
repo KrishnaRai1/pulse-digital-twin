@@ -100,7 +100,7 @@ function CrossSection({ profile }: { profile: ReturnType<typeof useProfile>["dat
       grid: gridBase({ top: 12, bottom: 84, left: 56, right: 16 }),
       xAxis: { type: "category", name: "Radius m", nameLocation: "middle", nameGap: 28, data: cs.r_m.map((v) => v.toFixed(1)), ...axisBase, splitLine: { show: false }, axisLabel: { ...axisBase.axisLabel, interval: Math.ceil(cs.r_m.length / 8) } },
       yAxis: { type: "category", name: "Pay depth m", inverse: true, data: cs.z_m.map((v) => v.toFixed(0)), ...axisBase, splitLine: { show: false }, axisLabel: { ...axisBase.axisLabel, interval: 2 } },
-      visualMap: { min: tmin, max: tmax, calculable: false, orient: "horizontal", left: "center", bottom: 0, itemWidth: 12, itemHeight: 140, textStyle: { color: COLORS.muted, fontSize: 10 }, inRange: { color: ["#16324a", "#2d6a8e", "#4cc3d9", "#e3a72f", "#e5484d"] }, text: ["°C", ""] },
+      visualMap: { min: tmin, max: tmax, calculable: false, orient: "horizontal", left: "center", bottom: 0, itemWidth: 12, itemHeight: 140, textStyle: { color: COLORS.muted, fontSize: 10 }, inRange: { color: ["#0c1b2c", "#163350", "#f59e0b", "#f97316", "#ef4444"] }, text: ["°C", ""] },
       series: [{ type: "heatmap", data, progressive: 0 }],
     };
   }, [profile]);

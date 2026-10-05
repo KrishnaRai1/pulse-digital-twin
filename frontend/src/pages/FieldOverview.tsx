@@ -16,15 +16,15 @@ function PadMap({ wells, onOpen }: { wells: WellSummary[]; onOpen: (id: string) 
     <svg viewBox="30 10 1470 380" className="w-full" role="group" aria-label="Field pad map">
       {Object.entries(PAD_BOX).map(([pad, b]) => (
         <g key={pad}>
-          <rect x={b.x} y={30} width={b.w} height={270} rx={12} fill="#10161d" stroke="#263140" strokeDasharray="5 5" />
-          <text x={b.x + 14} y={52} fill="#8796a8" fontSize="15" fontWeight="600" letterSpacing="2">
+          <rect x={b.x} y={30} width={b.w} height={270} rx={12} fill="#0b1928" stroke="#1a324b" strokeDasharray="5 5" />
+          <text x={b.x + 14} y={52} fill="#8ea5bd" fontSize="15" fontWeight="600" letterSpacing="2">
             PAD {pad}
           </text>
         </g>
       ))}
       {/* gathering line to the group gathering station */}
-      <path d="M50 340 H1480" stroke="#2c3a4b" strokeWidth="3" />
-      <text x="50" y="368" fill="#5d6b7c" fontSize="13">
+      <path d="M50 340 H1480" stroke="#1a324b" strokeWidth="3" />
+      <text x="50" y="368" fill="#5a738e" fontSize="13">
         Gathering line → Group Gathering Station
       </text>
       {wells.map((w) => {
@@ -32,10 +32,10 @@ function PadMap({ wells, onOpen }: { wells: WellSummary[]; onOpen: (id: string) 
         const colour = idle && w.status === "green" ? STATUS_COLOR.idle : STATUS_COLOR[w.status];
         return (
           <g key={w.id} transform={`translate(${w.x_m + 40}, ${w.y_m + 30})`} className="cursor-pointer" onClick={() => onOpen(w.id)} role="link" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && onOpen(w.id)} aria-label={`${w.id}, ${w.status}, ${PHASE_LABEL[w.phase] ?? w.phase}`}>
-            <line x1={0} y1={26} x2={0} y2={340 - (w.y_m + 30)} stroke="#2c3a4b" strokeWidth={2} />
+            <line x1={0} y1={26} x2={0} y2={340 - (w.y_m + 30)} stroke="#1a324b" strokeWidth={2} />
             {w.status === "red" && <circle r={34} fill="none" stroke={colour} strokeOpacity={0.35} strokeWidth={2} className="blink-red" />}
             <circle r={26} fill={colour} fillOpacity={0.16} stroke={colour} strokeWidth={2.5} />
-            <text y={-2} textAnchor="middle" fill="#d9e0e8" fontSize="16" fontWeight="700">
+            <text y={-2} textAnchor="middle" fill="#e5edf5" fontSize="16" fontWeight="700">
               {w.id.replace("BGW-", "")}
             </text>
             <text y={13} textAnchor="middle" fill="#8796a8" fontSize="11">
