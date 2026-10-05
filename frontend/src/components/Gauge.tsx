@@ -35,7 +35,7 @@ export function Gauge({ title, value, unit, min = 0, max, digits = 1, bands, lim
           progress: { show: false },
           axisLine: { lineStyle: { width: 10, color: stops } },
           axisTick: { show: false },
-          splitLine: { length: 8, distance: -10, lineStyle: { color: "#0e1318", width: 2 } },
+          splitLine: { length: 8, distance: -10, lineStyle: { color: "#06111c", width: 2 } },
           axisLabel: { show: false, color: COLORS.muted, fontSize: 10, distance: 14, formatter: (v: number) => (max >= 100 ? v.toFixed(0) : v.toFixed(max < 10 ? 1 : 0)) },
           splitNumber: 5,
           pointer: { width: 4, length: "58%", itemStyle: { color: COLORS.ink } },
