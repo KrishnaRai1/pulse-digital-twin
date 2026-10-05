@@ -30,23 +30,23 @@ echarts.use([
 ]);
 
 export const COLORS = {
-  ink: "#d9e0e8",
-  muted: "#8796a8",
-  faint: "#5d6b7c",
-  line: "#263140",
-  grid: "#1e2733",
-  accent: "#4cc3d9",
-  ok: "#3fb56b",
-  warn: "#e3a72f",
-  bad: "#e5484d",
-  idle: "#6b7787",
-  violet: "#9d8cf0",
-  orange: "#f08a4b",
-  blue: "#5b9cf0",
-  steam: "#c9d6e3",
+  ink: "#e5edf5",
+  muted: "#8ea5bd",
+  faint: "#5a738e",
+  line: "#1a324b",
+  grid: "#102235",
+  accent: "#f59e0b", // Oil India Signature Golden Amber
+  ok: "#10b981",
+  warn: "#f59e0b",
+  bad: "#ef4444",
+  idle: "#64748b",
+  violet: "#a78bfa",
+  orange: "#fb923c",
+  blue: "#38bdf8",
+  steam: "#cbd5e1",
 } as const;
 
-export const SERIES = [COLORS.accent, COLORS.warn, COLORS.violet, COLORS.ok, COLORS.orange, COLORS.blue];
+export const SERIES = [COLORS.accent, COLORS.blue, COLORS.ok, COLORS.orange, COLORS.violet, "#e5edf5"];
 
 echarts.registerTheme("pulse", {
   backgroundColor: "transparent",

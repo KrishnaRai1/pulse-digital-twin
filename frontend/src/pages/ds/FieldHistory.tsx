@@ -23,7 +23,7 @@ function ramp(v: number | null, lo: number, hi: number, colors: string[]): strin
   const t = Math.max(0, Math.min(0.9999, (v - lo) / (hi - lo)));
   return colors[Math.floor(t * colors.length)];
 }
-const OIL_RAMP = ["#1d3b4a", "#21566a", "#26728a", "#2f8fa8", "#4cc3d9", "#8be0ee"];
+const OIL_RAMP = ["#102235", "#163350", "#854d0e", "#b45309", "#f59e0b", "#fde047"];
 const RISK_RAMP = ["#24423a", "#3fb56b", "#a8c23a", "#e3a72f", "#ef7a3a", "#e5484d"];
 const RFI_RAMP = ["#21566a", "#2f8fa8", "#3fb56b", "#e3a72f", "#e5484d", "#ff7b8a"];
 
@@ -51,8 +51,8 @@ function FieldMap({ wells, layout, mode, thr, onOpen }: { wells: DsWellState[]; 
     <svg viewBox={`-14 -26 ${(maxX + 1) * CELL + 28} ${(maxY + 1) * CELL + 40}`} className="w-full" role="group" aria-label="Field map, 300 wells in 12 pads (schematic)">
       {pads.map(([pad, b]) => (
         <g key={pad}>
-          <rect x={b.x0 * CELL - 10} y={b.y0 * CELL - 10} width={(b.x1 - b.x0 + 1) * CELL + 2} height={(b.y1 - b.y0 + 1) * CELL + 2} rx={8} fill="#10161d" stroke="#263140" strokeDasharray="4 4" />
-          <text x={b.x0 * CELL - 6} y={b.y0 * CELL - 14} fill="#5d6b7c" fontSize="10" fontWeight="600" letterSpacing="1.5">
+          <rect x={b.x0 * CELL - 10} y={b.y0 * CELL - 10} width={(b.x1 - b.x0 + 1) * CELL + 2} height={(b.y1 - b.y0 + 1) * CELL + 2} rx={8} fill="#0b1928" stroke="#1a324b" strokeDasharray="4 4" />
+          <text x={b.x0 * CELL - 6} y={b.y0 * CELL - 14} fill="#5a738e" fontSize="10" fontWeight="600" letterSpacing="1.5">
             PAD {pad}
           </text>
         </g>
@@ -78,7 +78,7 @@ function FieldMap({ wells, layout, mode, thr, onOpen }: { wells: DsWellState[]; 
                 (w.phase === "production" ? `\noil ${fmt(w.oil_bbl_d, 1)} bbl/d · SPM ${fmt(w.spm, 1)} · RFI ${fmt(w.rfi, 2)} · risk ${fmt((w.risk ?? 0) * 100, 1)}%` : "")}
             </title>
             {alert && <circle r={13} fill="none" stroke={RAG_COLOR.red} strokeOpacity={0.6} strokeWidth={1.5} />}
-            <circle r={9} fill={c} fillOpacity={w.phase === "stopped" ? 0.25 : 0.85} stroke={w.status === "red" ? RAG_COLOR.red : "#0e1318"} strokeWidth={w.status === "red" ? 2 : 1} />
+            <circle r={9} fill={c} fillOpacity={w.phase === "stopped" ? 0.25 : 0.85} stroke={w.status === "red" ? RAG_COLOR.red : "#06111c"} strokeWidth={w.status === "red" ? 2 : 1} />
           </g>
         );
       })}
@@ -132,7 +132,7 @@ export function FieldHistory() {
           showSymbol: false,
           lineStyle: { width: 1.6, color: COLORS.accent },
           itemStyle: { color: COLORS.accent },
-          areaStyle: { color: "#4cc3d91f" },
+          areaStyle: { color: "#f59e0b1f" },
           markLine: { symbol: "none", silent: true, label: { formatter: fmtDay(day), color: COLORS.ink, fontSize: 11 }, lineStyle: { color: COLORS.warn, type: "solid", width: 1.5 }, data: [{ xAxis: String(day) }] },
         },
         { name: "Water", type: "line", data: trend.water_bbl_d, showSymbol: false, lineStyle: { width: 1, color: COLORS.blue, opacity: 0.6 }, itemStyle: { color: COLORS.blue } },

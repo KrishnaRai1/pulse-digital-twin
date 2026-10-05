@@ -10,7 +10,7 @@ export const axisBase = {
 
 export const tooltipBase = {
   trigger: "axis" as const,
-  backgroundColor: "#0e1318ee",
+  backgroundColor: "#06111cee",
   borderColor: COLORS.line,
   textStyle: { color: COLORS.ink, fontSize: 12 },
   confine: true,
