@@ -105,7 +105,7 @@ export function Layout() {
         <div className="border-t border-line px-4 py-3 text-[11px] leading-relaxed text-faint">
           Baghewala Field · CSS
           <br />
-          SIH26120 · Digital Twin
+          SIH26120 · Team Fluxora (178187)
         </div>
       </aside>
 
