@@ -8,7 +8,7 @@ numpy>=1.26,<3
 scipy>=1.11,<2
 pandas>=2.1,<4
 pyarrow>=15,<30
-openpyxl>=3.1,<4
+openpyxl>=3.1.5,<4
 python-multipart>=0.0.9
 lightgbm>=4.3,<5
 # PostgreSQL / TimescaleDB driver (only used when PULSE_DATABASE_URL points at postgres)
