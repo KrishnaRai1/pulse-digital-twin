@@ -1,0 +1,38 @@
+# Separate containers for UI and API (REST + WebSocket only between them).
+#   docker compose up --build                       -> http://localhost:8080  (first build ~5-10 min:
+#                                                      trains the models and builds the field store)
+#   docker compose --profile timescale up --build   -> adds TimescaleDB (untested path; see docs/ARCHITECTURE.md)
+services:
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    env_file: [{ path: .env, required: false }]
+    environment:
+      PULSE_CORS_ORIGINS: ${PULSE_CORS_ORIGINS:-http://localhost:8080}
+    volumes: [pulse-data:/srv/backend/data]
+    expose: ["8000"]
+    restart: unless-stopped
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+
+  frontend:
+    build: { context: ., dockerfile: frontend/Dockerfile }
+    ports: ["8080:8080"]
+    depends_on: { backend: { condition: service_healthy } }
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/var/cache/nginx, /var/run, /tmp]
+    security_opt: ["no-new-privileges:true"]
+
+  timescaledb:
+    profiles: [timescale]
+    image: timescale/timescaledb:latest-pg16
+    environment:
+      POSTGRES_DB: pulse
+      POSTGRES_USER: pulse
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    volumes: [pg-data:/var/lib/postgresql/data]
+    expose: ["5432"]
+
+volumes:
+  pulse-data:
+  pg-data:

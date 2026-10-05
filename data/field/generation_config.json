@@ -1,0 +1,143 @@
+{
+  "version": "1.4",
+  "case": "baghewala",
+  "seed": 42,
+  "noise_level": 0.5,
+  "min_osr": 0.12,
+  "n_wells": 300,
+  "n_cycles": 10,
+  "params": {
+    "rock_heat_capacity_j_m3_k": 2350000.0,
+    "thermal_conductivity_rock_w_mk": 1.73,
+    "wellbore_radius_m": 0.1,
+    "drainage_radius_m": 75.0,
+    "skin": 2.0,
+    "steam_quality_range": [
+      0.45,
+      0.7
+    ],
+    "soak_benefit_amplitude": 0.4,
+    "soak_benefit_tau_days": 4.0,
+    "pressure_support_fraction": 0.8,
+    "pressure_tau_days": 45.0,
+    "rod_diameter_in": 0.875,
+    "plunger_diameter_in": 2.0,
+    "stroke_length_in": 96.0,
+    "pump_vol_eff": 0.8,
+    "spm_min": 2.0,
+    "spm_max": 9.6,
+    "hz_per_spm": 6.25,
+    "rod_float_v0_m_s": 0.2,
+    "rod_float_mu_ref_cp": 10000.0,
+    "rod_float_exponent": 0.25,
+    "rod_float_v_max_m_s": 1.2,
+    "water_cut_base": 0.15,
+    "damage_k_float": 0.0082,
+    "damage_k_pound": 0.0058,
+    "damage_k_base": 0.00034,
+    "life_sigma": 0.35,
+    "initial_damage_max": 0.6,
+    "workover_days_range": [
+      4,
+      12
+    ],
+    "precursor_power": 40.0,
+    "precursor_var_amp": 6.0,
+    "precursor_fill_drop": 0.25,
+    "precursor_load_gain": 0.2,
+    "precursor_slip": 0.15,
+    "precursor_noise": 1.5,
+    "precursor_scale": 0.5,
+    "case_name": "baghewala",
+    "reservoir_depth_m": 1150.0,
+    "pay_thickness_m": 20.0,
+    "porosity": 0.18,
+    "perm_md": 6500.0,
+    "initial_reservoir_temp_c": 47.0,
+    "t_res_spread_c": 1.0,
+    "initial_pressure_mpa": 8.0,
+    "p_res_range_mpa": [
+      7.5,
+      8.5
+    ],
+    "oil_density_kg_m3": 955.0,
+    "visc_anchor": [
+      11500.0,
+      50.0,
+      20.0,
+      200.0
+    ],
+    "steam_rate_m3_per_day": 200.0,
+    "steam_temp_range_c": [
+      302.0,
+      330.0
+    ],
+    "steam_temp_c": 316.0,
+    "injection_days_range": [
+      10,
+      20
+    ],
+    "soak_days_range": [
+      2,
+      14
+    ],
+    "production_days_range": [
+      120,
+      300
+    ],
+    "motor_rated_kw": 18.5,
+    "h_net_m": 1000.0,
+    "water_return_range": [
+      0.45,
+      0.9
+    ],
+    "formation_wc_range": [
+      0.02,
+      0.08
+    ],
+    "depletion_range": [
+      0.7,
+      0.92
+    ],
+    "visc_table": {
+      "temps_c": [
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        47.0,
+        50.0,
+        60.0,
+        70.0,
+        80.0,
+        100.0,
+        125.0,
+        150.0,
+        200.0,
+        250.0,
+        300.0,
+        350.0,
+        400.0
+      ],
+      "mu_cp": [
+        1001313.8273,
+        260389.5418,
+        80268.0892,
+        28576.0787,
+        14934.3004,
+        11500.0,
+        5139.6529,
+        2513.6644,
+        1328.7953,
+        450.5408,
+        154.7167,
+        66.9957,
+        20.0,
+        8.8051,
+        4.8814,
+        3.1301,
+        2.2126
+      ]
+    }
+  }
+}

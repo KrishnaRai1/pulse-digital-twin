@@ -1,0 +1,31 @@
+[project]
+name = "pulse-backend"
+version = "1.0.0"
+description = "PULSE - Predictive Unified Lift & Steam Engine: digital twin and advisory optimiser for CSS wells"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+extend-exclude = ["models", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S"]
+ignore = [
+  "E501",   # long lines are handled by the formatter
+  "B008",   # FastAPI Depends() in argument defaults is the framework idiom
+  "S101",   # assert is fine in tests
+  "S311",   # random is not used for security
+  "UP007",
+  "B905",   # zip() lengths are validated where it matters
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "B"]
+"scripts/*" = ["S"]

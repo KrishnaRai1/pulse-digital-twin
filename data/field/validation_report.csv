@@ -1,0 +1,63 @@
+file,check,status,detail
+config,case,INFO,"baghewala (v1.4, seed 42, noise 0.5)"
+css_cycle_log.csv,schema,PASS,all expected columns present
+css_cycle_log.csv,no missing values,PASS,0 NaN
+css_cycle_log.csv,injection days contiguous,PASS,per well-cycle
+css_cycle_log.csv,steam rate/quality/temp/pressure constant within a cycle,PASS,
+css_cycle_log.csv,steam rate in range,PASS,150-250 m3/d (nominal 200)
+css_cycle_log.csv,steam temperature in range,PASS,302-330 C (design range 302-330)
+css_cycle_log.csv,steam quality in range,PASS,0.45-0.70
+css_cycle_log.csv,soak time in range,PASS,2-14 d (design 2-14)
+css_cycle_log.csv,"injection pressure = Psat(T) (wet steam, IAPWS-IF97)",PASS,P/Psat = 1.000-1.040
+css_cycle_log.csv,injection pressure above reservoir pressure,PASS,min 8.85 MPa vs reservoir up to 8.5 MPa
+srp_vfd_data.csv,schema,PASS,all expected columns present
+srp_vfd_data.csv,no missing values,PASS,0 NaN
+srp_vfd_data.csv,"pump is OFF during soak and workover (SPM, VFD, loads = 0)",PASS,22075 soak + 4617 workover rows
+srp_vfd_data.csv,SPM within pump limits,PASS,2.0-9.6
+srp_vfd_data.csv,VFD frequency within 12.5-60 Hz,PASS,12.5-60.0 Hz
+srp_vfd_data.csv,VFD frequency proportional to SPM,PASS,
+srp_vfd_data.csv,motor load within 0-100 %,PASS,
+srp_vfd_data.csv,rod-floating index non-negative,PASS,max 3.71; >1 on 12.9% of running days
+srp_vfd_data.csv,polished-rod peak load > min load > 0 on running days,PASS,"peak 47 kN, min 30 kN (median)"
+srp_vfd_data.csv,condition labels,INFO,"{'normal': 572217, 'shut_in': 22075, 'workover': 4617, 'rod_part': 374, 'pump_unset': 173, 'worn_barrel': 66}"
+production_history.csv,schema,PASS,all expected columns present
+production_history.csv,NaN only where undefined (water cut on shut-in soak/workover days),PASS,0 unexpected NaN
+production_history.csv,"NO production during soak or workover (oil, liquid = 0)",PASS,26692 idle rows
+production_history.csv,rates and viscosity non-negative,PASS,
+production_history.csv,water cut within 0-100 %,PASS,
+production_history.csv,oil = gross liquid x (1 - water cut),PASS,
+production_history.csv,noise detected,INFO,yes (observed != prior)
+production_history.csv,viscosity correlation reproduces the case's viscosity table,PASS,max error 0.00%
+production_history.csv,"viscosity at 50 C inside OIL's published 10,000-13,000 cP",PASS,"11,500 cP (SPE abstract range 8,000-15,000)"
+production_history.csv,prior viscosity decreases monotonically with temperature,PASS,Spearman -1.0000
+production_history.csv,temperature starts near steam temperature,PASS,min start 302 C
+production_history.csv,temperature returns near reservoir temperature by end of cycle,PASS,"end-of-cycle excess median 4.0 C, p95 29.1 C (bigger heated zones cool more slowly)"
+production_history.csv,lifted liquid <= pump capacity at LOGGED SPM,PASS,
+production_history.csv,"when the pump is the limit, SPM sets production (causal)",PASS,"61423 pump-limited days, Spearman 1.00"
+production_history.csv,produced water is a large share of injected steam (condensate return),PASS,median 0.61 (range 0.23-1.06)
+production_history.csv,water cut starts high and declines,PASS,first 10 production days 81% -> last 30 days 22%
+production_history.csv,cycle SOR (steam m3 CWE / oil m3),INFO,"min 0.59, median 2.56, max 24.26"
+production_history.csv,"more steam (rate, injection days) -> more oil per cycle-day",PASS,"t = 15.2 / 18.1 (2739 cycles, controls: well, cycle number)"
+production_history.csv,early SPM matters (pump-limited period),PASS,t = 11.3
+production_history.csv,"later cycles yield less oil (depletion), controlled",PASS,"coef -0.178 per cycle, t = -88.7"
+production_history.csv,hotter steam -> more oil (controlled),PASS,"coef +0.026 per 10 C, t = 3.7"
+production_history.csv,higher steam quality -> more oil (controlled),PASS,"coef +0.047 per 0.1, t = 6.0"
+production_history.csv,soak has an interior optimum (oil per cycle-day),INFO,~11.8 d (t of curvature = -1.8)
+production_history.csv,peak oil rate per cycle (m3/d),INFO,median 9.7 (range 1.4-32.7)
+rod_failure_log.csv,schema (includes downtime_days),PASS,
+rod_failure_log.csv,failure modes are valid classes,PASS,"{'rod_part': 374, 'pump_unset': 173, 'worn_barrel': 66}"
+rod_failure_log.csv,each failure is on a day the pump was running and matches srp_vfd_data.csv,PASS,
+rod_failure_log.csv,"failures are followed by workover (no production, pump off)",PASS,99% (the rest fall on a cycle's last day)
+rod_failure_log.csv,no new failure during a workover,PASS,min gap between failures in a well 25 d
+rod_failure_log.csv,failure frequency per running well-year (assumed ~0.4),PASS,0.39 (613 failures in 1569 running well-years); no sourced frequency
+rod_failure_log.csv,load variability is higher in the 14 days before failures (early-warning signal exists),PASS,AUC 0.88 (0.5 = none); precursor strength is an assumption (--precursor_scale)
+rod_failure_log.csv,failure events,INFO,613 in 2739 cycles; downtime mean 7.9 d
+dynamometer_card_index.csv,skipped,INFO,"no card index (generated with --skip_cards, or using real cards)"
+calibration vs literature,field-average oil rate per producing well (bbl/d),PASS,34.0 vs OIL ~36.4 (25-50) [B]
+calibration vs literature,stimulated / cold rate ratio,PASS,2.8 vs analogs ~3x (2.0-8.0) [A/C]
+calibration vs literature,cycle oil-steam ratio,PASS,0.39 vs field range 0.19-0.64 [A]
+calibration vs literature,cycle-average water cut (%),PASS,61 vs field range 45-75 [A]
+calibration vs literature,cycle-to-cycle peak-rate ratio (depletion),PASS,0.83 vs Sudan analog 0.3-0.6 (we allow milder 0.5-0.95) [C]
+calibration vs literature,economic limit,INFO,"122 of 300 wells stopped steaming early (cycles per well: median 10, min 6)"
+calibration vs literature,sources,INFO,see calibration.py (each target lists paper/report and reliability grade)
+plots,written,INFO,synthetic_data\validation_plots.png

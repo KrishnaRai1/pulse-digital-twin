@@ -1,0 +1,4 @@
+# Training the dynamometer-card CNN needs PyTorch (CPU build is enough):
+#   pip install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-train.txt
+-r requirements.txt
+torch>=2.2,<3

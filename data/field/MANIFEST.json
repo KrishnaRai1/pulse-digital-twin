@@ -1,0 +1,118 @@
+{
+  "imported_at": "2026-10-05T16:12:43Z",
+  "tables": {
+    "css_cycle_log": {
+      "file": "css_cycle_log.parquet",
+      "source": "0c55da9a-css_cycle_log.csv",
+      "rows": 41057,
+      "columns": [
+        "well_id",
+        "cycle",
+        "day",
+        "phase",
+        "steam_volume_m3",
+        "steam_quality",
+        "injection_pressure_kpa",
+        "injection_temp_c",
+        "soak_time_days"
+      ],
+      "source_sha256": "7109cd77d2e9960d6409248cb61d132faf4c9513b9dd4f2896ac984f78718494",
+      "source_bytes": 4241218,
+      "parquet_sha256": "09bcae15b43d12dd47aa4f28634f467942727d0fcb999008ac95e884de833cba",
+      "parquet_bytes": 148220,
+      "lossless_roundtrip": true,
+      "seconds": 0.3
+    },
+    "production_history": {
+      "file": "production_history.parquet",
+      "source": "production_history.csv",
+      "rows": 599522,
+      "columns": [
+        "well_id",
+        "cycle",
+        "day",
+        "phase",
+        "days_since_soak_start",
+        "oil_rate_bbl_day",
+        "water_cut_pct",
+        "gross_liquid_bbl_day",
+        "reservoir_temp_c",
+        "oil_viscosity_cp",
+        "prior_oil_rate_bbl_day",
+        "prior_gross_liquid_bbl_day",
+        "prior_reservoir_temp_c",
+        "prior_oil_viscosity_cp"
+      ],
+      "source_sha256": "1fb1b9a7fd9680c12fa2a05ba7b4059aa2fe40e06bb905f0cf91592f7cb38baa",
+      "source_bytes": 115495535,
+      "parquet_sha256": "8cf54e7a39a626859d93d4578d30ab92f2b62d926d9f4a31bda3e1aff83b88ff",
+      "parquet_bytes": 42128302,
+      "lossless_roundtrip": true,
+      "seconds": 8.4
+    },
+    "srp_vfd_data": {
+      "file": "srp_vfd_data.parquet",
+      "source": "srp_vfd_data.csv",
+      "rows": 599522,
+      "columns": [
+        "well_id",
+        "cycle",
+        "day",
+        "phase",
+        "pump_running",
+        "spm",
+        "stroke_length_in",
+        "vfd_frequency_hz",
+        "motor_load_pct",
+        "pump_fillage_pct",
+        "rod_floating_index",
+        "polished_rod_peak_load_kn",
+        "polished_rod_min_load_kn",
+        "load_variability_pct",
+        "condition_label"
+      ],
+      "source_sha256": "4b568d9e52ec19dc4719893deefd07542c55886c1ab441e7f07d7a1e5767fe61",
+      "source_bytes": 103562563,
+      "parquet_sha256": "34ade2913e4f439cf2d35047b2ce6e48b2f1135e63024a46a5ada54e5e6476b3",
+      "parquet_bytes": 32743281,
+      "lossless_roundtrip": true,
+      "seconds": 7.3
+    }
+  },
+  "files": {
+    "rod_failure_log.csv": {
+      "source": "d01fa65b-rod_failure_log.csv",
+      "sha256": "e7649d4291acfd57be214223d773cef36c3bf5b14168103ddebfef6d3366fe6c",
+      "bytes": 17722
+    },
+    "generation_config.json": {
+      "source": "cf8f2db6-generation_config.json",
+      "sha256": "fbbdf22a11ee90b0a6fe69edf8be8dfb3e47e9e0bc8a1a68ce676cb1a0da8f35",
+      "bytes": 2942
+    },
+    "validation_report.csv": {
+      "source": "31cd7008-validation_report.csv",
+      "sha256": "e022c1be2b2d42e20fb279d00e348be5d5bf7e5d6fa621a6d64367f762799e57",
+      "bytes": 5919
+    },
+    "early_warning_report.json": {
+      "source": "076938ff-early_warning_report.json",
+      "sha256": "c089e0d0b4b4fb22c2d50e88d7d6315756e7692be2b5c2161a7606348bf40128",
+      "bytes": 1942
+    },
+    "validation_plots.jpg": {
+      "source": "validation_plots.jpg",
+      "sha256": "5713c64a00082552c4ec01f88e83ece71ae3ffe5a6d4d7ff74c4445dfcb309a6",
+      "bytes": 88495
+    }
+  },
+  "dataset": {
+    "version": "1.4",
+    "case": "baghewala",
+    "seed": 42,
+    "noise_level": 0.5,
+    "n_wells": 300,
+    "n_cycles": 10,
+    "min_osr": 0.12
+  }
+}

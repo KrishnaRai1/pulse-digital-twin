@@ -1,0 +1,53 @@
+{
+  "horizon_days": 14,
+  "results": {
+    "GBM (all features)": {
+      "roc_auc": 0.9810355114658452,
+      "pr_auc": 0.510755105237767,
+      "flag_rate_on_healthy_days": 0.020004746496564578,
+      "failures_caught_with_ge3d_warning": 0.8793969849246231,
+      "median_lead_days": 14.0,
+      "n_failures_test": 199,
+      "false_alert_days_per_running_well_year": 7.178203173013452
+    },
+    "rule: current rod-floating index": {
+      "roc_auc": 0.8481888204875822,
+      "pr_auc": 0.15103296789685144,
+      "flag_rate_on_healthy_days": 0.020004746496564578,
+      "failures_caught_with_ge3d_warning": 0.35678391959798994,
+      "median_lead_days": 14.0,
+      "n_failures_test": 199,
+      "false_alert_days_per_running_well_year": 7.178203173013452
+    },
+    "rule: current load variability": {
+      "roc_auc": 0.8876692005866594,
+      "pr_auc": 0.17836306890006293,
+      "flag_rate_on_healthy_days": 0.020004746496564578,
+      "failures_caught_with_ge3d_warning": 0.7035175879396985,
+      "median_lead_days": 11.0,
+      "n_failures_test": 199,
+      "false_alert_days_per_running_well_year": 7.178203173013452
+    },
+    "rule: cumulative floating exposure": {
+      "roc_auc": 0.8051046321190929,
+      "pr_auc": 0.0650641321726884,
+      "flag_rate_on_healthy_days": 0.020490972973911635,
+      "failures_caught_with_ge3d_warning": 0.11055276381909548,
+      "median_lead_days": 14.0,
+      "n_failures_test": 199,
+      "false_alert_days_per_running_well_year": 7.352673389024196
+    }
+  },
+  "top_features": {
+    "load_variability_pct_m14": 0.13565,
+    "load_variability_pct_m7": 0.11894,
+    "days_since_restart": 0.1181,
+    "load_variability_pct_m30": 0.11121,
+    "pump_fillage_pct": 0.1014,
+    "cum_float_expo": 0.08928,
+    "pump_fillage_pct_m14": 0.06363,
+    "load_variability_pct_m3": 0.0517,
+    "pump_fillage_pct_trend": 0.05055,
+    "spm": 0.04842
+  }
+}
