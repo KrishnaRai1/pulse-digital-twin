@@ -114,7 +114,7 @@ function ConfusionMatrix({ classes, m }: { classes: string[]; m: number[][] }) {
       grid: { left: 130, right: 12, top: 8, bottom: 78 },
       xAxis: { type: "category", data: classes.map(classLabel), name: "Predicted", nameLocation: "middle", nameGap: 62, ...axisBase, splitLine: { show: false }, axisLabel: { ...axisBase.axisLabel, rotate: 30, interval: 0 } },
       yAxis: { type: "category", data: classes.map(classLabel), name: "", inverse: true, ...axisBase, splitLine: { show: false } },
-      visualMap: { show: false, min: 0, max, inRange: { color: ["#151b23", "#2d6a8e", "#4cc3d9"] } },
+      visualMap: { show: false, min: 0, max, inRange: { color: ["#0b1928", "#1a324b", "#f59e0b"] } },
       series: [{ type: "heatmap", data, label: { show: true, color: COLORS.ink, fontSize: 11 } }],
     };
   }, [classes, m]);
