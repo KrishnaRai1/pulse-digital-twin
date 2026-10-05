@@ -68,13 +68,17 @@ export function Layout() {
     <div className="flex h-full">
       <aside className="hidden w-[232px] shrink-0 flex-col border-r border-line bg-panel md:flex">
         <div className="flex items-center gap-2.5 px-4 py-4">
-          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden>
-            <rect width="32" height="32" rx="7" fill="#0e1318" stroke="#263140" />
-            <path d="M3 17h6l3-9 5 17 3-11 2 3h7" fill="none" stroke="#4cc3d9" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="34" height="34" viewBox="0 0 32 32" aria-hidden className="shrink-0">
+            <rect width="32" height="32" rx="7" fill="#06111c" stroke="#1a324b" />
+            <path d="M16 5 C16 5 9 15 9 20 C9 23.9 12.1 27 16 27 C19.9 27 23 23.9 23 20 C23 15 16 5 16 5 Z" fill="none" stroke="#f59e0b" strokeWidth="1.8" strokeLinejoin="round" />
+            <path d="M7 17h4l2-5 3 10 2-7 2 2h5" fill="none" stroke="#f59e0b" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <div className="leading-tight">
-            <div className="text-[15px] font-bold tracking-[0.18em] text-ink">PULSE</div>
-            <div className="text-[10px] uppercase tracking-wider text-muted">Lift &amp; Steam Engine</div>
+          <div className="leading-tight min-w-0">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[13px] font-bold tracking-[0.14em] text-ink truncate">OIL INDIA</span>
+              <span className="rounded bg-accent/20 px-1 py-0.5 text-[9px] font-semibold text-accent uppercase">PULSE</span>
+            </div>
+            <div className="text-[10px] uppercase tracking-wider text-muted">Baghewala CSS Twin</div>
           </div>
         </div>
         <nav className="flex-1 space-y-4 overflow-y-auto px-2 py-2" aria-label="Main">
@@ -103,7 +107,7 @@ export function Layout() {
           ))}
         </nav>
         <div className="border-t border-line px-4 py-3 text-[11px] leading-relaxed text-faint">
-          Baghewala Field · CSS
+          <span className="font-semibold text-muted">Oil India Limited</span> · Baghewala
           <br />
           SIH26120 · Team Fluxora (178187)
         </div>
@@ -119,7 +123,7 @@ export function Layout() {
             ))}
           </nav>
           <div className="hidden text-[13px] text-muted md:block">
-            Baghewala Field <span className="mx-1.5 text-faint">/</span> <span className="text-ink">{live ? "Live twin (simulated)" : "Field history (dataset)"}</span>
+            <span className="font-semibold text-accent">Oil India Limited</span> <span className="mx-1 text-faint">/</span> Baghewala Field <span className="mx-1.5 text-faint">·</span> <span className="text-ink">{live ? "Live twin (simulated)" : "Field history (dataset)"}</span>
           </div>
           <div className="ml-auto flex items-center gap-4 text-xs">
             {live && red > 0 && (
@@ -154,7 +158,7 @@ export function Layout() {
           )
         ) : (
           <div className="border-b border-accent/20 bg-accent/6 px-4 py-1 text-[11px] text-accent/90">
-            Field history: PULSE synthetic dataset v1.4 (300 wells, physics generator calibrated to published Baghewala figures; no Oil India well data). Models are scored on held-out wells.
+            Oil India Limited · Baghewala Field dataset v1.4 (300 wells, CSS heavy-oil digital twin). Models scored on held-out wells.
           </div>
         )}
         <main className="min-h-0 flex-1 overflow-y-auto p-4 md:p-5">
