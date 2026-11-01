@@ -3,7 +3,7 @@
 #   train   - installs PyTorch (CPU), trains the card CNN and the thermal model, and builds the
 #             field-dataset store (tables + LightGBM models) from data/field. Needs ~1 GB RAM.
 #   runtime - API only: no PyTorch (the CNN runs on NumPy), ~320 MB RAM, starts in seconds.
-FROM python:3.11-slim AS base
+FROM python:3.15-slim AS base
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
 # LightGBM needs the OpenMP runtime; curl is used by the health check
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 curl && rm -rf /var/lib/apt/lists/*
